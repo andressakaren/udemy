@@ -1,13 +1,21 @@
+import re
+import sys
+
 while True:
     cpf_digitado = input('Digite o seu cpf: ')
+    cpf_digitado = re.sub(
+        r'[^0-9]', # Qualquer coisa de 0-9 que não seja um número
+        '',
+        cpf_digitado)
+    
     if len(cpf_digitado) != 11:
         print('Insira um cpf com 11 dígitos para ser válido')
         continue
-    try:
-        cpf_digitado in '0123456789'       
-    except: 
-        print('Você digitou valores inválidos')
-        
+    
+    entrada_eh_sequencial = cpf_digitado == cpf_digitado[0] * len(cpf_digitado)   
+    if entrada_eh_sequencial:
+        print('Você enviou dados sequenciais.')
+        sys.exit()    
     ### PRIMEIRO DÍGITO
         
     # colocar somente os 9 digitos numa lista
