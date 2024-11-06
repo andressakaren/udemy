@@ -18,5 +18,5 @@ print('oi')
 # pip index versions "pymysql" - verificar versões da biblioteca que criamos
 # pip install "pymysql==1.0.1" - instalar uma versão específica da biblioteca 
 # pip install "pymysql" --upgrade - Atualizar a biblioteca 
-# pip freeze > requirements.txt - criar um arquivo para colocar as bibliotecas instaladas e as versões
-# pip install -r .\requirements.txt - 
+# pip freeze > requirements.txt - criar um arquivo para colocar as bibliotecas instaladas e as versões. // ATUALIZAR TAMBEM
+# pip install -r .\requirements.txt - instalar o que ta dentro do requirements.txr
