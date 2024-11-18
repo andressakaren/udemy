@@ -23,6 +23,6 @@ import json
 
 
 with open('aula190.json', 'r', encoding='utf8') as arquivo:
-    pessoa = json.load(arquivo)
+    pessoa = json.load(arquivo) # carregar um arquivo
     
     print(pessoa['nome'])

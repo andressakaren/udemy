@@ -20,3 +20,6 @@ print('oi')
 # pip install "pymysql" --upgrade - Atualizar a biblioteca 
 # pip freeze > requirements.txt - criar um arquivo para colocar as bibliotecas instaladas e as versões. // ATUALIZAR TAMBEM
 # pip install -r .\requirements.txt - instalar o que ta dentro do requirements.txr
+
+# Verificar o caminho do python executado
+# gcm python -syntax 
