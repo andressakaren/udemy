@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:logging/logging.dart';
+// import 'package:logging/logging.dart';
 
 void main() => runApp(const PerguntaApp());
 // runapp() é uma função do flutter que recebe um widget e coloca na tela
 // const PerguntaApp() cria uma instancia do widget perguntarapp(). Se usa const antes da classe pra indicar que a classe pode ser otimizada pelo compilador para ser uma instancia constante. ou seja, ela permite que o flutter crie e reutilize a mesma instancia sempre q necessário, melhorando a performance do app.
 
-final Logger _logger = Logger('PerguntaApp');
+// final Logger _logger = Logger('PerguntaApp');
 
-// esse extend é para tornar o perguntaApp um widget, nesse caso, imutável (não tem estado que muda durante a execução)
-class PerguntaApp extends StatelessWidget {
-  const PerguntaApp({super.key});
+/// essa classe gerencia o estado
+class PerguntaAppState extends State<PerguntaApp> {
+  var perguntaSelecionada = 0;
 
   void responder() {
-    _logger.info('Pergunta respondida!'); // Log de nível 'info'
+    setState(() {
+      perguntaSelecionada++;
+    });
+    print(perguntaSelecionada);
+    print('Pergunta respondida!'); // é ideal usar o logger ao inves do print. Log de nível 'info'
   }
+
 // implementar um método buid que é obrigatório pela classe statelesswidget (ou statefulwidget)
   @override
   Widget build(BuildContext context) {
@@ -32,7 +37,7 @@ class PerguntaApp extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Text(perguntas[0]),
+            Text(perguntas[perguntaSelecionada]),
             ElevatedButton(
               onPressed: () {
                 responder();
@@ -55,5 +60,15 @@ class PerguntaApp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+// esse extend é para tornar o perguntaApp um widget, nesse caso, imutável (não tem estado que muda durante a execução)
+class PerguntaApp extends StatefulWidget {
+  const PerguntaApp({super.key});
+
+  @override
+  PerguntaAppState createState() {
+    return PerguntaAppState();
   }
 }

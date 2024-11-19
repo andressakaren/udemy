@@ -1,0 +1,54 @@
+# Uso do const 
+
+Acontece que quando criamos algum Widget aonde seus valores não são mutáveis, ou seja, não são variáveis, o Flutter faz essa sugestão de usarmos o const lá para facilitar na hora da compilação, marcando algo que não muda faz com que durante a execução do código o Flutter não passe duas vezes no mesmo local, sabe?
+Porém quando modificamos esses valores para algo mutável e o widget está marcado com o const um erro é gerado por conta do widget ter deixado de ser constante.
+
+### aula 37 
+
+Nessa aula, ele usa o var. Porem ao usar o var, os const usados para criar o perguntaApp deveriam ser tirados, pq teoricamente o const é para valores que não vao ser mutáveis, e usando o var que ia ser incrementado td vez q acionado o botão, seria um componente que ia ter o seu estado alterado. assim, causando erro pq usamos o statelesswidget. 
+
+Sugestão seria usar o final, que ia ficar incrementando (ia tirar a linha de incrementando com o ++). Mas como precisa alterar o indice, teria que alterar para o statefull. 
+
+### aula 38 
+
+O estado é dados/informações utilizadas por sua app. 
+Estado da app - Usuário autenticado, produto carregados, 
+Estado do Widget - Valor de campo de entrada, o spinner de carregamento está sendo exibido? 
+
+Stateless VS Stateful 
+
+Stateless
+Parametros(atibutos constantes) - Dados de entrada -> Widget -> Renderizar a UI; Os dados podem mudar externamente. e quando eles (os parametros) mudam, eles são redenrizados novamente. 
+
+Statefull
+Parametros(atibutos constantes) - Dados de entrada -> Widget ESTADO INTERNO -> Renderizar a UI; Os dados podem mudar externamente. e quando os parametros ou o estado interno muda, eles são renderizados novamente. 
+
+### aula 39
+
+preferir componentes sem estados. 
+setState(). é usado para atualizar a interface, ou seja, teve uma mudança de estado no widget. fazendo com que o build() seja chamado novamente
+
+## aula 41 
+
+Apesar de que não era o foco da aula:
+Detalhe do código feito em dart: na nova versão, o atributo precisa ter um valor atribuido antes de ser usado o objeto. Formas de resolver isso: 
+- inicializar os atributos dentro da propria classe. O this é como se fosse o self. tipo:
+
+class Pessoa {
+  String nome;
+  String _cpf;
+
+  // Construtor nomeado para inicializar os atributos
+  Pessoa({required this.nome, required this.cpf});
+}
+
+void main() {
+  var p1 = Pessoa(nome: 'João', cpf: '12345678900'); // CPF sem formatação
+
+  print('O ${p1.nome} tem cpf ${p1._cpf}');
+}
+
+- usar um valor padrao, tipo String nome = '';
+- usar o late antes, significa que ele vai ser inicializado depois tipo late String nome;
+
+
