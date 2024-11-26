@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './questao.dart';
 // import 'package:logging/logging.dart';
 
 void main() => runApp(const PerguntaApp());
@@ -16,7 +17,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
       _perguntaSelecionada++;
     });
     print(_perguntaSelecionada);
-    print('Pergunta respondida!'); // é ideal usar o logger ao inves do print. Log de nível 'info'
+    print(
+        'Pergunta respondida!'); // é ideal usar o logger ao inves do print. Log de nível 'info'
   }
 
 // implementar um método buid que é obrigatório pela classe statelesswidget (ou statefulwidget)
@@ -37,7 +39,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(
           children: <Widget>[
-            Text(perguntas[_perguntaSelecionada]),
+            Questao(perguntas[_perguntaSelecionada]),
             ElevatedButton(
               onPressed: _responder,
               child: const Text('Resposta 1'),

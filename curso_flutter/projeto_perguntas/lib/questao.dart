@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Questao extends StatelessWidget {
-  const Questao({super.key});
+  
+  final String texto;
+
+  // criar contrutor
+  const Questao(this.texto, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Text(texto);
   }
 }
+
+// como não tem mais acesso a pergunta, vou esperar receber o valor pelo construtor do meu conmponente. 
