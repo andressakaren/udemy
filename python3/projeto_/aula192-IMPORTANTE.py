@@ -22,8 +22,7 @@ def listar(tarefas):
     for i, tarefa in enumerate(tarefas, 1):
         print(f'{i}. {tarefa}')
     print()
-      
-          
+              
 def desfazer(tarefas, tarefas_undone):
     print()
     if not tarefas:
@@ -60,33 +59,35 @@ def adicionar(tarefa, tarefas):
         print(f'A tarefa "{tarefa}" já existe!')
         return
     
-    print(f'Tarefa adicionada: "{tarefa}"')
     tarefas.append(tarefa)
+    print(f'Tarefa adicionada: "{tarefa}"')
     print()
-
-tarefas = []
-tarefas_undone = []
-
-while True:
-    print('Comandos: listar, desfazer, refazer, limpar')
-    tarefa = input('Digite uma tarefa ou comando: ')
     
-    if tarefa == 'listar':
-        listar(tarefas)
-        continue
-    elif tarefa == 'desfazer':
-        desfazer(tarefas, tarefas_undone)
-        listar(tarefas)
-        continue
-    elif tarefa == 'refazer':
-        refazer(tarefas, tarefas_undone)
-        listar(tarefas)
-        continue
-    elif tarefa == 'limpar':
-        os.system('clear')
-        continue
-    else:
-        adicionar(tarefa, tarefas)
-        listar(tarefas)
-        continue
+def limpar_tela():
+    os.system('clear')
+
+def main():
+    tarefas = []
+    tarefas_undone = []
+    comandos = {
+        'listar': lambda: listar(tarefas),
+        'desfazer': lambda: (desfazer(tarefas, tarefas_undone), listar(tarefas)),
+        'refazer': lambda: (refazer(tarefas, tarefas_undone), listar(tarefas)),
+        'limpar': limpar_tela
+    }
+
+    while True:
+        print('Comandos: listar, desfazer, refazer, limpar, sair')
+        comando = input('Digite uma tarefa ou comando: ').strip().lower()
         
+        if comando == 'sair':
+            print('Encerrando... Até logo!')
+            break
+        elif comando in comandos:
+            comandos[comando]()
+        else:
+            adicionar(comando, tarefas)
+            listar(tarefas)
+            
+if __name__ == '__main__':
+    main()
