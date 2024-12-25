@@ -8,8 +8,8 @@
 # desfazer = [] -> Refazer ['caminhar', 'fazer café']
 # refazer = todo ['fazer café']
 # refazer = todo ['fazer café', 'caminhar']
-
 import os
+import json
 
 def listar(tarefas):
     print()
@@ -65,9 +65,24 @@ def adicionar(tarefa, tarefas):
     
 def limpar_tela():
     os.system('clear')
-
+    
+def ler(tarefas, caminho_arquivo):
+    dados = []
+    try:
+        with open(caminho_arquivo, 'r', encoding='utf8') as arquivo:
+            dados = json.load(arquivo)
+    except FileNotFoundError:
+        print('Arquivo não existe')
+        salvar(tarefas, caminho_arquivo)
+    return dados   
+        
+def salvar(tarefas, caminho_arquivo):
+    with open(caminho_arquivo, 'w', encoding='utf8') as arquivo:
+        json.dump(tarefas, arquivo, indent=2, ensure_ascii=False)
+    
 def main():
-    tarefas = []
+    CAMINHO_ARQUIVO = 'aula192.json'
+    tarefas = ler([], CAMINHO_ARQUIVO)
     tarefas_undone = []
     comandos = {
         'listar': lambda: listar(tarefas),
@@ -89,5 +104,7 @@ def main():
             adicionar(comando, tarefas)
             listar(tarefas)
             
+        salvar(tarefas, CAMINHO_ARQUIVO)  
+        
 if __name__ == '__main__':
     main()
