@@ -245,3 +245,7 @@ Definem como a classe lida com operadores de comparação.
 | **Métodos Estáticos** | Nenhum | `@staticmethod def metodo():` |
 | **Propriedades** | `@property` | `@property def atributo(self):` |
 | **Métodos Especiais (`dunder methods`)** | `__nome__` | `def __str__(self):` |
+
+---
+
+## UML
