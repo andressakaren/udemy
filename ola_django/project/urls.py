@@ -18,10 +18,6 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-# HTTP funciona no modo request e response
-# HTTP Request <-> HTTP Response
-# MVT model view template (Variação de MVC - model view controller)
-
 def home(request):
     return HttpResponse('HOME 1')
 

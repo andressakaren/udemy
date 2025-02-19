@@ -23,3 +23,10 @@ print('oi')
 
 # Verificar o caminho do python executado
 # gcm python -syntax 
+
+
+# HTTP funciona no modo request e response
+# HTTP Request <-> HTTP Response
+# MVT model view template (Variação de MVC - model view controller)
+
+# pagina de admin - CRUD 
