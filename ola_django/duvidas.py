@@ -30,3 +30,5 @@ print('oi')
 # MVT model view template (Variação de MVC - model view controller)
 
 # pagina de admin - CRUD 
+
+# importar - caminho absoluto 
