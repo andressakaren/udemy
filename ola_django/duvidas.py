@@ -32,3 +32,5 @@ print('oi')
 # pagina de admin - CRUD 
 
 # importar - caminho absoluto 
+
+# aula 427 - aninhar URLS no project - usar include. 

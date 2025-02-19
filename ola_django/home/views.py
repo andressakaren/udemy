@@ -5,4 +5,4 @@ from django.http import HttpResponse
 
 def home(request):
     print('Home')
-    return HttpResponse('HOME que veio do app criado')
+    return HttpResponse('HOME que veio do app criado 1')
