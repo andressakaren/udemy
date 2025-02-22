@@ -6,9 +6,21 @@ from blog.data import posts
 
 
 def blog(request):
-    print('Olá exemplo')
+    print('blog')
     context = {
-        # 'posts': 'data.posts'
+        # 'posts': 'data.posts'  --- se a importação for da outra forma comentada
+        'posts': posts
+        
+    }
+    return render(
+        request,
+        'blog/index.html',
+        context,
+    )
+
+def post(request, id):
+    print('post', id)
+    context = {
         'posts': posts
         
     }
