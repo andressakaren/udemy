@@ -8,7 +8,6 @@ from blog.data import posts
 def blog(request):
     print('Olá exemplo')
     context = {
-        'text': 'Olá blog',
         # 'posts': 'data.posts'
         'posts': posts
         
